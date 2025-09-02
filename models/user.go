@@ -1,6 +1,8 @@
 package models
 
 import (
+	"errors"
+
 	"github.com/event-booker/db"
 	"github.com/event-booker/utils"
 )
@@ -9,6 +11,25 @@ type User struct{
 	ID 			int64
 	Email 		string 	`binding:"required"`
 	Password 	string 	`binding:"required"`
+}
+
+func (user *User) ValidateCredentials() error{
+	query := `SELECT id, password FROM users WHERE email = ?`
+	row := db.DB.QueryRow(query, user.Email)
+
+	var retrievedPassword string
+	err := row.Scan(&user.ID, &retrievedPassword)
+	if err != nil {
+		return err
+	}
+
+	passwordIsValid := utils.CheckPasswordHash(user.Password, retrievedPassword)
+
+	if !passwordIsValid {
+		return errors.New("credentials invalid")
+	}
+
+	return nil
 }
 
 func (user *User) Save() error{
