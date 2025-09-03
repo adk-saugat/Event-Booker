@@ -1,10 +1,10 @@
 POST http://localhost:8080/events
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9AZ21haWwuY29tIiwiZXhwIjoxNzU2ODgwMjA2LCJ1c2VySWQiOjJ9.YJ7YSogPgVgemZShWy8AOdWWVn70CXpUE1nUyp7eAE8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhdWdhdEBnbWFpbC5jb20iLCJleHAiOjE3NTY5MTg4NDIsInVzZXJJZCI6MX0.XptmlruFx1wfswwF3Fa4cnpEQWranmewB2rAFRf1P2s
 
 {
-    "name": "test-event3",
-    "description": "event-description3",
-    "location": "test-location3",
+    "name": "test-event",
+    "description": "event-description",
+    "location": "test-location",
     "dateTime": "2025-08-29T17:25:00.000Z"
 }
